@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d3b78">
+<title>SK Free Wi-Fi Nagsimbaanan</title>
+<style>
+:root{--navy:#0a2f5c;--blue:#1560b0;--sky:#eaf3fc;--line:#d5e2ef;--text:#14283d;--muted:#5b6f84;--red:#c62828;--shadow:0 1px 2px rgba(10,47,92,.06),0 8px 24px rgba(10,47,92,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#f3f6fa;color:var(--text);line-height:1.5;font-size:15px}
+a{color:var(--blue)}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #7fb2ec;outline-offset:2px}
+.topbar{height:4px;background:linear-gradient(90deg,#0a2f5c,#1560b0,#0a2f5c)}
+.gov-strip{background:#fff;border-bottom:1px solid var(--line)}
+.gov-strip-inner{max-width:920px;margin:auto;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.powered-top{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.powered-top img{height:26px;width:auto;max-width:120px;object-fit:contain}
+.live-clock{text-align:right;line-height:1.25;font-variant-numeric:tabular-nums}
+.live-clock .date{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.live-clock .time{display:block;font-size:15px;font-weight:700;color:var(--navy)}
+.live-clock .tz{font-size:10px;color:#8093a6}
+.hero{background:linear-gradient(135deg,#082848,#0e4a8c 65%,#1560b0);color:#fff;padding:28px 16px 64px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:320px;height:320px;border:48px solid rgba(255,255,255,.05);border-radius:50%;right:-130px;top:-150px}
+.hero-inner{max-width:920px;margin:auto;display:flex;align-items:center;gap:18px;position:relative;z-index:1}
+.logo{width:76px;height:76px;flex:none;object-fit:contain;background:#fff;border-radius:50%;padding:4px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.eyebrow{font-size:12px;letter-spacing:1px;font-weight:600;color:#bcdcf7;text-transform:uppercase}
+.hero h1{font-size:clamp(26px,5vw,38px);margin:2px 0 4px;line-height:1.1;font-weight:800;letter-spacing:-.3px}
+.hero p{margin:0;color:#d5e8fa;font-size:14px}
+.wrap{max-width:920px;margin:-44px auto 36px;padding:0 16px;position:relative;z-index:2}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:22px;margin-bottom:16px}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #e6eef6}
+.section-title h3{margin:0;font-size:17px;font-weight:700;color:var(--navy)}
+.pill{font-size:11px;font-weight:700;letter-spacing:.6px;background:var(--sky);color:#0e4a8c;border-radius:99px;padding:5px 11px;white-space:nowrap}
+.welcome{text-align:center;padding:30px 22px}
+.wifi-icon{width:56px;height:56px;margin:0 auto 12px;border-radius:50%;background:var(--sky);color:var(--blue);display:grid;place-items:center}
+.wifi-icon svg{width:30px;height:30px}
+.welcome h2{margin:0 0 8px;font-size:24px;color:var(--navy)}
+.welcome p{margin:0 auto;color:var(--muted);max-width:600px;font-size:15px}
+.terms{display:flex;align-items:flex-start;justify-content:center;gap:10px;margin:18px auto 0;max-width:560px;color:#475a6e;font-size:13px;text-align:left;cursor:pointer}
+.terms input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--blue)}
+.connect{margin-top:18px;width:min(100%,420px);min-height:52px;border:0;border-radius:10px;padding:14px 18px;background:var(--blue);color:#fff;font-weight:700;font-size:16px;letter-spacing:.4px;cursor:pointer;box-shadow:0 6px 16px rgba(21,96,176,.3);transition:background .15s}
+.connect:hover{background:#0e4a8c}.connect:active{transform:translateY(1px)}
+.status{min-height:20px;margin-top:12px;font-size:14px;font-weight:600}.status.error{color:var(--red)}.status.ok{color:#17743f}
+.announcement{display:none}.announcement.show{display:block}
+.announcement-grid{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:20px;align-items:center}
+.announcement img{width:100%;max-height:240px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.announcement h4{font-size:20px;margin:0 0 8px;color:var(--navy)}.announcement p{white-space:pre-wrap;color:#455a70;font-size:15px;margin:0}
+
+.profiling-card{position:relative;overflow:hidden;border-top:4px solid var(--blue);background:linear-gradient(135deg,#fff 0%,#f5faff 100%)}
+.profiling-card:after{content:"";position:absolute;width:180px;height:180px;border:28px solid rgba(21,96,176,.05);border-radius:50%;right:-80px;top:-85px;pointer-events:none}
+.profiling-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.profiling-kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:.7px;color:var(--blue);text-transform:uppercase;margin-bottom:7px}
+.profiling-card h3{margin:0 0 7px;color:var(--navy);font-size:20px}
+.profiling-card p{margin:0;color:var(--muted);font-size:14px;max-width:650px}
+.profiling-note{margin-top:10px!important;font-size:12px!important;color:#49657f!important}
+.profiling-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:205px;min-height:50px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff!important;text-decoration:none;font-size:14px;font-weight:800;letter-spacing:.25px;box-shadow:0 6px 16px rgba(21,96,176,.22);transition:background .15s,transform .15s}
+.profiling-btn:hover{background:#0e4a8c}.profiling-btn:active{transform:translateY(1px)}
+
+.emergency-front{border-top:4px solid var(--red)}
+.emergency-pill{background:#fdecec!important;color:#a51f1f!important}
+.emergency-note{font-size:13px;color:var(--muted);margin:0 0 12px}
+.emergency-911{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:var(--red);color:#fff;border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.emergency-911 strong{font-size:26px;line-height:1}.emergency-911 span{font-size:12px;text-align:right;line-height:1.35;opacity:.95}
+.hotline-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.hotline-group{border:1px solid var(--line);border-radius:10px;background:#fafcfe;padding:12px 14px;min-width:0}
+.hotline-group h4{margin:0 0 6px;color:#a51f1f;font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+.hotline-row{padding:8px 0;border-top:1px solid #e6eef6}.hotline-row:first-of-type{border-top:0}
+.hotline-row strong{display:block;font-size:14px;color:var(--text);margin-bottom:5px}
+.hotline-buttons{display:flex;flex-wrap:wrap;gap:6px}
+.hotline-buttons a{display:inline-flex;align-items:center;min-height:38px;padding:6px 12px;border:1px solid #c5d8ec;border-radius:8px;background:#fff;color:#0e4a8c;font-size:13px;font-weight:600;text-decoration:none;font-variant-numeric:tabular-nums}
+.hotline-buttons a:hover{background:var(--sky)}
+#about-sk p{margin:0 0 12px;color:#3a4d61}#about-sk p:last-child{margin:0}
+.gov-contact{padding:0!important;overflow:hidden}
+.gov-contact-head{background:var(--navy);color:#fff;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.gov-contact-head h3{margin:0;font-size:15px;letter-spacing:.4px;text-transform:uppercase}.gov-contact-head span{font-size:11px;font-weight:600;letter-spacing:.6px;color:#c6def5}
+.gov-contact-body{display:grid;grid-template-columns:1fr 1fr}
+.gov-contact-item{display:flex;align-items:center;gap:12px;padding:16px 20px;min-width:0}.gov-contact-item+.gov-contact-item{border-left:1px solid var(--line)}
+.gov-contact-icon{flex:0 0 38px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--blue);font-size:17px}
+.gov-contact-label{display:block;font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.gov-contact-item a{font-size:14px;font-weight:600;word-break:break-word;text-decoration:none}
+.gov-contact-note{border-top:1px solid var(--line);padding:10px 16px;text-align:center;font-size:12px;color:var(--muted);background:#fafcfe}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:10px}.adminlink{color:#8093a6;font-size:12px;text-decoration:none}
+.music{position:fixed;right:16px;bottom:16px;width:46px;height:46px;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:50%;box-shadow:var(--shadow);cursor:pointer;z-index:9;font-size:18px}
+@media(max-width:680px){.hero{padding:22px 16px 58px}.logo{width:64px;height:64px}.card{padding:18px 16px}.announcement-grid,.hotline-groups,.gov-contact-body{grid-template-columns:1fr}.gov-contact-item+.gov-contact-item{border-left:0;border-top:1px solid var(--line)}.gov-contact-head span{display:none}.powered-top span{display:none}.profiling-content{grid-template-columns:1fr}.profiling-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="gov-strip"><div class="gov-strip-inner"><div class="powered-top"><span>Powered by:</span><img src="assets/pldt-enterprise-powered.png" alt="PLDT Enterprise"></div><div class="live-clock" aria-live="polite"><span id="liveDate" class="date">Loading date…</span><span id="liveTime" class="time">--:--:--</span><span class="tz">Philippine Standard Time (PHT)</span></div></div></div>
+<header class="hero"><div class="hero-inner"><img class="logo" src="assets/sk-nagsimbaanan-logo.png" alt="SK Nagsimbaanan logo"><div><div class="eyebrow">Office of the Sangguniang Kabataan</div><h1>SK Free Wi-Fi</h1><p>Barangay Nagsimbaanan • Bacnotan, La Union</p></div></div></header>
+<main class="wrap">
+<section class="card welcome"><div class="wifi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5.5 12.4a10 10 0 0 1 13 0"/><path d="M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></div><h2>Welcome, Kabataan!</h2><p>Free community internet access for education, communication, government services and emergencies. Please use the network responsibly and fairly.</p><label class="terms"><input id="agree" type="checkbox"> <span>I agree to use SK Free Wi-Fi responsibly and not for illegal, harmful, abusive or bandwidth-intensive activity that may affect other users.</span></label><button id="connectBtn" class="connect">CONNECT TO FREE WI-FI</button><div id="connectStatus" class="status"></div></section>
+
+<section id="announcement" class="card announcement"><div class="section-title"><h3>Official Announcement</h3><span class="pill">SK NAGSIMBAANAN</span></div><div class="announcement-grid"><img id="announcementImage" alt="Official announcement"><div><h4 id="announcementTitle"></h4><p id="announcementCaption"></p></div></div></section>
+
+<section class="card profiling-card" aria-labelledby="profiling-title">
+<div class="profiling-content">
+<div>
+<div class="profiling-kicker">👥 KATIPUNAN NG KABATAAN • YOUTHLINK</div>
+<h3 id="profiling-title">KK Profiling</h3>
+<p>Help us keep the youth records of Barangay Nagsimbaanan updated. KK Profiling helps the SK better understand the needs, participation, and situation of young people in the community so programs, projects, activities, and youth services can be planned using accurate information.</p>
+<p class="profiling-note"><strong>Your updated information matters.</strong> It supports better youth planning, communication, program targeting, and official SK records.</p>
+</div>
+<a class="profiling-btn" href="https://youthlink-kohl.vercel.app/profiling" target="_blank" rel="noopener noreferrer" aria-label="Open KK Profiling form">UPDATE / REGISTER NOW&nbsp; →</a>
+</div>
+</section>
+
+<section class="card emergency-front"><div class="section-title"><h3>📞 Emergency Hotlines</h3><span class="pill emergency-pill">TAP TO CALL</span></div><p class="emergency-note">Kung may emergency, makipag-ugnayan sa inyong Punong Barangay o tumawag sa mga opisyal na emergency hotlines ng LGU Bacnotan.</p>
+<a class="emergency-911" href="tel:911"><strong>☎ 911</strong><span>National Emergency Hotline<br>La Union Rescue</span></a>
+<div class="hotline-groups">
+<div class="hotline-group"><h4>🚨 EMERGENCY &amp; RESCUE</h4><div class="hotline-row"><strong>Bacnotan Rescue</strong><div class="hotline-buttons"><a href="tel:09195461800">0919 546 1800</a></div></div><div class="hotline-row"><strong>MDRRMO Bacnotan</strong><div class="hotline-buttons"><a href="tel:09494742161">0949 474 2161</a><a href="tel:09177739994">0917 773 9994</a></div></div></div>
+<div class="hotline-group"><h4>👮 POLICE &amp; FIRE</h4><div class="hotline-row"><strong>PNP Bacnotan</strong><div class="hotline-buttons"><a href="tel:09985985156">0998 598 5156</a><a href="tel:09155137245">0915 513 7245</a></div></div><div class="hotline-row"><strong>BFP Bacnotan</strong><div class="hotline-buttons"><a href="tel:09171842711">0917 184 2711</a><a href="tel:0726075472">(072) 607 5472</a></div></div></div>
+<div class="hotline-group"><h4>🏥 MEDICAL &amp; HEALTH</h4><div class="hotline-row"><strong>Bacnotan District Hospital</strong><div class="hotline-buttons"><a href="tel:09516762335">0951 676 2335</a></div></div><div class="hotline-row"><strong>Municipal Health Office</strong><div class="hotline-buttons"><a href="tel:09098471268">0909 847 1268</a><a href="tel:09177189585">0917 718 9585</a><a href="tel:09309158479">0930 915 8479</a></div></div></div>
+<div class="hotline-group"><h4>🌊 COAST GUARD</h4><div class="hotline-row"><strong>Coast Guard Substation San Juan</strong><div class="hotline-buttons"><a href="tel:09602886940">0960 288 6940</a></div></div></div>
+<div class="hotline-group"><h4>⚡ UTILITIES</h4><div class="hotline-row"><strong>LUELCO Bacnotan</strong><div class="hotline-buttons"><a href="tel:09171204671">0917 120 4671</a></div></div></div>
+<div class="hotline-group"><h4>🏛️ MUNICIPAL SERVICES</h4><div class="hotline-row"><strong>MSWDO</strong><div class="hotline-buttons"><a href="tel:09285203893">0928 520 3893</a></div></div><div class="hotline-row"><strong>Mayor’s Office</strong><div class="hotline-buttons"><a href="tel:09295810383">0929 581 0383</a><a href="tel:09153501441">0915 350 1441</a></div></div></div>
+</div></section>
+
+
+<section id="about-sk" class="card"><div class="section-title"><h3>About the Sangguniang Kabataan</h3><span class="pill">YOUTH GOVERNANCE</span></div><div style="line-height:1.75;color:#334155"><p>The <strong>Sangguniang Kabataan (SK)</strong> is the <strong>youth governing body at the barangay level in the Philippines</strong>. It represents young people in local governance and provides them with opportunities to participate in community development and decision-making.</p><p>The SK is responsible for developing and implementing <strong>programs, projects, and activities for the youth</strong>, particularly in areas such as education, health, sports, environment, culture and the arts, leadership, employment, and community participation.</p><p>Led by the <strong>SK Chairperson together with the SK Council</strong>, it manages its own youth development plans and budget while coordinating with the Barangay Government and other agencies. At its core, the SK serves as a <strong>bridge between the youth and local government</strong>, helping ensure that young people's needs, ideas, and voices are represented in the community.</p></div></section>
+<section class="card gov-contact" aria-labelledby="contact-title"><div class="gov-contact-head"><h3 id="contact-title">Contact Us</h3><span>OFFICIAL SK CONTACT INFORMATION</span></div><div class="gov-contact-body"><div class="gov-contact-item"><div class="gov-contact-icon">✉</div><div><span class="gov-contact-label">Official Email</span><a href="mailto:sknagsimbaanan.bacnotan@gmail.com">sknagsimbaanan.bacnotan@gmail.com</a></div></div><div class="gov-contact-item"><div class="gov-contact-icon">☎</div><div><span class="gov-contact-label">Telephone</span><a href="tel:+63726132244">(072) 613 2244</a></div></div></div><div class="gov-contact-note">Office of the Sangguniang Kabataan • Barangay Nagsimbaanan • Bacnotan, La Union</div></section>
+<div class="footer">SK Free Wi-Fi Nagsimbaanan • Better access, stronger youth participation.<br><a class="adminlink" href="/admin">Portal Admin</a></div>
+</main>
+
+<audio id="anthem" loop preload="none"><source src="assets/Matatag_Na_Kabataang_Pilipino.mp3" type="audio/mpeg"></audio><button id="musicBtn" class="music" title="Play/pause background music" aria-label="Play or pause background music">♪</button>
+<script>
+const $=id=>document.getElementById(id);
+let sb=null;
+async function loadAnnouncement(){try{const cfg=await fetch('/api/config',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('No config');return r.json()});if(!cfg.supabaseUrl||!cfg.supabaseAnonKey)return;await new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';s.onload=ok;s.onerror=()=>no(new Error('Supabase library blocked'));setTimeout(()=>no(new Error('Supabase library timeout')),5000);document.head.appendChild(s)});sb=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey);const {data,error}=await sb.from('wifi_announcements').select('title,caption,image_url,updated_at').eq('is_active',true).order('updated_at',{ascending:false}).limit(1).maybeSingle();if(error)throw error;if(data){$('announcementTitle').textContent=data.title||'Official Announcement';$('announcementCaption').textContent=data.caption||'';if(data.image_url){$('announcementImage').src=data.image_url;$('announcementImage').style.display='block'}else{$('announcementImage').style.display='none'}$('announcement').classList.add('show')}}catch(e){console.warn('Announcement unavailable:',e.message)}}
+function getOmadaTarget(){const p=new URLSearchParams(location.search);return p.get('target')||p.get('redirect')||p.get('url')||p.get('redirectUrl')||''}
+$('connectBtn').onclick=()=>{if(!$('agree').checked){$('connectStatus').className='status error';$('connectStatus').textContent='Please agree to the responsible-use notice first.';return}try{localStorage.setItem('skWifiAccepted','1')}catch(e){}$('connectStatus').className='status ok';$('connectStatus').textContent='Connecting…';const target=getOmadaTarget();setTimeout(()=>{if(target){location.href=target;return}/* Omada External Portal: replace the next line with your controller authorization endpoint if your setup requires API authorization. */ location.href='http://connectivitycheck.gstatic.com/generate_204'},350)};
+try{if(localStorage.getItem('skWifiAccepted')==='1')$('agree').checked=true}catch(e){}
+$('musicBtn').onclick=async()=>{const a=$('anthem');try{if(a.paused){await a.play();$('musicBtn').textContent='Ⅱ'}else{a.pause();$('musicBtn').textContent='♪'}}catch(e){}};
+
+function updateGovernmentClock(){const now=new Date();const optsDate={timeZone:'Asia/Manila',weekday:'short',year:'numeric',month:'long',day:'2-digit'};const optsTime={timeZone:'Asia/Manila',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true};$('liveDate').textContent=new Intl.DateTimeFormat('en-PH',optsDate).format(now);$('liveTime').textContent=new Intl.DateTimeFormat('en-PH',optsTime).format(now);}
+updateGovernmentClock();setInterval(updateGovernmentClock,1000);
+loadAnnouncement();
+</script>
+</body></html>
